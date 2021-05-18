@@ -78,7 +78,7 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "openslides",
+        "NAME": get_env("DATABASE_NAME", "openslides"),
         "USER": get_env("DATABASE_USER", "openslides"),
         "PASSWORD": get_env("DATABASE_PASSWORD", "openslides"),
         "HOST": get_env("DATABASE_HOST", "db"),
@@ -88,7 +88,7 @@ DATABASES = {
     },
     "mediafiles": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "mediafiledata",
+        "NAME": get_env("MEDIA_DATABASE_NAME", "mediafiledata"),
         "USER": get_env("DATABASE_USER", "openslides"),
         "PASSWORD": get_env("DATABASE_PASSWORD", "openslides"),
         "HOST": get_env("DATABASE_HOST", "db"),
