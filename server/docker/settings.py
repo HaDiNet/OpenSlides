@@ -154,3 +154,9 @@ LOGGING = {
 }
 
 SETTINGS_FILEPATH = __file__
+
+# Local Settings
+filename = "/app/local_settings.py"
+with open(filename, "rb") as source_file:
+    code = compile(source_file.read(), filename, "exec")
+exec(code)
