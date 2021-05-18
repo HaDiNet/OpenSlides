@@ -48,6 +48,12 @@ RUN apt-get install --no-install-recommends -y \
   libxmlsec1-openssl \
   pkg-config
 
+# Install LDAP requirements
+RUN apt-get install --no-install-recommends -y \
+  libldap2-dev \
+  libsasl2-dev \
+  ldap-utils
+
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY requirements /app/requirements
