@@ -138,7 +138,7 @@ class AutoupdateBundle:
 
 @contextmanager
 def autoupdate_bundle() -> Iterator[AutoupdateBundle]:
-    bundle = _autoupdate_bundle.get(threading.get_ident())
+    bundle = None
     autodone = False
     if bundle is None:
         bundle = AutoupdateBundle()
