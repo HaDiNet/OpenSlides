@@ -1,7 +1,7 @@
 import endpoint
     import invalid_host*
 
-    reverse_proxy /system/* autoupdate:8002 {
+    reverse_proxy /system/* {$AUTOUPDATE_HOST}:{$AUTOUPDATE_PORT} {
         flush_interval -1
     }
 
@@ -10,13 +10,13 @@ import endpoint
         path /rest/*
         path /server-version.txt
     }
-    reverse_proxy @server server:8000
+    reverse_proxy @server {$SERVER_HOST}:{$SERVER_PORT}
 
-    reverse_proxy /media/* media:8000
+    reverse_proxy /media/* {$MEDIA_HOST}:{$MEDIA_PORT}
 
     reverse_proxy /prometheus/* prometheus:9090
 
-    reverse_proxy client:4200
+    reverse_proxy {$CLIENT_HOST}:{$CLIENT_PORT}
 }
 
 import redirect*
